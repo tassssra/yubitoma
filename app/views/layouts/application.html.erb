@@ -10,6 +10,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <p class="notice"><%= notice %></p> <!--  ログインした時などにログインしました的なメッセージを出す  -->
+    <p class="alert"><%= alert %></p> <!--  ログインした時などにログインしました的なメッセージを出す  -->
+
+  <%= yield %>
   </body>
 </html>
