@@ -1,0 +1,9 @@
+# config/locales/views/events/ja.yml
+  ja:
+    events:
+      new:
+        title: イベント作成
+      show:
+        date: 日時
+        address: 会場
+        description: イベントの説明

@@ -45,6 +45,7 @@ gem 'devise', '~> 4.6.1'
 gem 'rails_12factor'
 
 # for japanese-message
+gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
