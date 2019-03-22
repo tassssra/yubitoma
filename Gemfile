@@ -38,6 +38,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 
+# image upload
+gem 'mini_magick'
+
 # signup, signout, twitter-authentication
 gem 'devise', '~> 4.6.1'
 

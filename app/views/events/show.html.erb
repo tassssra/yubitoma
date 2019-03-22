@@ -1,10 +1,23 @@
 <!-- app/views/events/show.html.erb -->
 <div class="col-md-10 offset-md-1 mt-5">
-  <h2><%= @event.title %></h2>
-  <ul>
-    <li><%= t ".date" %>: <%= @event.date %></li>
-    <li><%= t ".address" %>: <%= @event.address %></li>
-  </ul>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <% if @event.image.attached? %>
+        <%= image_tag @event.image.variant(resize: "300x300"), class: "img-thumbnail" %>
+      <% else %>
+        <%= image_tag "no_image.png", class: "img-thumbnail" %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <h2><%= @event.title %></h2>
+      <ul>
+        <li><%= t ".date" %>: <%= @event.date %></li>
+        <li><%= t ".address" %>: <%= @event.address %></li>
+      </ul>
+    </div>
+  </div>
   <h5><%= t ".description" %></h5>
   <%= simple_format @event.description %>
+  <%= link_to t(".edit"), edit_event_path(@event), class: "btn btn-primary" %>
+  <%= link_to t(".return"), events_path, class: "btn btn-secondary" %>
 </div>

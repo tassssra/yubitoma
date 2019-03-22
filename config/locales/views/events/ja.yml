@@ -3,7 +3,11 @@
     events:
       new:
         title: イベント作成
+      edit:
+        title: イベント編集
       show:
         date: 日時
         address: 会場
         description: イベントの説明
+        edit: 編集
+        return: 戻る
