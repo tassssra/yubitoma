@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yubitoma</title>
+    <title>yubitoma</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,9 +10,14 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p> <!--  ログインした時などにログインしました的なメッセージを出す  -->
-    <p class="alert"><%= alert %></p> <!--  ログインした時などにログインしました的なメッセージを出す  -->
+    <%= notice %> <!--  ログインした時などにログインしました的なメッセージを出す  -->
+    <%= alert %> <!--  ログインした時などにログインしました的なメッセージを出す  -->
+    <%= render "shared/nav" %>
 
-  <%= yield %>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
