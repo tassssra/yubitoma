@@ -18,6 +18,8 @@ ja:
         password: パスワード
         password_confirmation: パスワード再入力
         submit: 登録
+        current_password: 現在のパスワード
+        remember_me: ログイン情報を記録する
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
