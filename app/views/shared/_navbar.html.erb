@@ -6,10 +6,10 @@
   <%= link_to t(".title"), root_path, class: "navbar-brand" %>
   <div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <%= link_to t(".new_event"), new_event_path, class: "nav-link" %>
-      </li>
       <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to t(".new_event"), new_event_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
           <%= link_to t(".my_page"), user_path(current_user.id), class: "nav-link" %>
         </li>
