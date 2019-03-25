@@ -10,7 +10,7 @@
         address: 会場
         description: イベントの説明
         edit: 編集
-        return: 戻る
+        return: 一覧へ戻る
         delete: 削除
         modal_title: イベント削除
         question_event: "%{event}を削除しますか？"
