@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :destroy]
+  # showアクションではset_eventを使用しない
 
   def index
     @events = Event.with_attached_image.page(params[:page]).per(3)
@@ -8,6 +9,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.with_attached_image.includes(joins: :user).find(params[:id])
     @join = Join.new
   end
 
