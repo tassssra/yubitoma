@@ -1,6 +1,9 @@
 # config/locales/views/events/ja.yml
   ja:
     events:
+      index:
+        join_new: 参加
+        join_delete: キャンセル
       new:
         title: イベント作成
       edit:

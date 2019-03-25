@@ -5,6 +5,7 @@ ja:
       home: Home
       new_event: イベント作成
       new_registration: 無料登録
-      edit_registration: アカウント設定
+      my_page: マイページ
+      edit_registration: プロフィール編集
       log_out: ログアウト
       log_in: ログイン
