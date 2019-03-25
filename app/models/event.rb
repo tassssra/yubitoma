@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   attribute :new_image
 
   belongs_to :user
-  has_many :joins
+  has_many :joins, dependent: :nullify
   has_many :joined_users, through: :joins, source: :user
   accepts_nested_attributes_for :joins
 

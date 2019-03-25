@@ -17,7 +17,7 @@
   <%= link_to t(".edit"), edit_event_path(@event), class: "btn btn-primary" %>
   <%= button_tag t(".delete"), class: "btn btn-warning", data: { toggle: "modal", target: "#delete-event" } %>
   <% if current_user.already_joined?(@event) %>
-    <%= button_to t(".join_delete"), event_join_path(@event), method: :delete, class: "btn btn-info" %>
+    <%= button_to t(".join_delete"), event_join_path(@event), method: :delete, data: { confirm: "イベント参加をキャンセルしますか？" },class: "btn btn-info" %>
   <% elsif user_signed_in? %>
     <%= button_to t(".join_new"), event_joins_path(@event), class: "btn btn-info" %>
   <% end %>
