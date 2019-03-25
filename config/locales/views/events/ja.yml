@@ -16,3 +16,5 @@
         question_event: "%{event}を削除しますか？"
         delete_action: 削除する
         cancel: キャンセル
+        join_new: 参加
+        join_delete: キャンセル

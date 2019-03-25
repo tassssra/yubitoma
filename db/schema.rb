@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_24_064944) do
+ActiveRecord::Schema.define(version: 2019_03_25_054159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2019_03_24_064944) do
     t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "joins", force: :cascade do |t|
@@ -51,7 +53,6 @@ ActiveRecord::Schema.define(version: 2019_03_24_064944) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_joins_on_event_id"
-    t.index ["user_id", "event_id"], name: "index_joins_on_user_id_and_event_id", unique: true
     t.index ["user_id"], name: "index_joins_on_user_id"
   end
 
@@ -75,12 +76,14 @@ ActiveRecord::Schema.define(version: 2019_03_24_064944) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "events", "users"
   add_foreign_key "joins", "events"
   add_foreign_key "joins", "users"
 end

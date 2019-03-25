@@ -1,10 +1,10 @@
-class CreateUserEvents < ActiveRecord::Migration[5.2]
+class CreateJoins < ActiveRecord::Migration[5.2]
   def change
-    create_table :join do |t|
+    create_table :joins do |t|
       t.references :user, foreign_key: true
       t.references :event, foreign_key: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

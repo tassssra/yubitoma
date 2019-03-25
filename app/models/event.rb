@@ -3,8 +3,9 @@ class Event < ApplicationRecord
   has_one_attached :image
   attribute :new_image
 
-  has_many :users, through: :joins
+  belongs_to :user
   has_many :joins
+  has_many :joined_users, through: :joins, source: :user
   accepts_nested_attributes_for :joins
 
   validates :title, presence: true, length: 1..50
