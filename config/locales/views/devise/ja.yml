@@ -3,6 +3,7 @@ ja:
   devise:
     registrations:
       new:
+        sign_in: "ログインはこちら"
         title: 無料登録
         password_confirmation: パスワード再入力
         submit: 登録
@@ -18,6 +19,6 @@ ja:
         confirm: アカウント削除
     sessions:
       new:
-        title: ログイン
+        title: "ログイン"
         remember_me: ログイン情報を記録する
         submit: ログイン
