@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   # showアクションではset_eventを使用しない
 
   def index
-    @events = Event.with_attached_image.page(params[:page]).per(3)
+    # @events = Event.with_attached_image.find_old_events(params[:page]) # イベント日が近い順, asc省略
     @event = Event.new
     @join = Join.new
   end

@@ -13,6 +13,9 @@ class Event < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true, length: { maximum: 1000 }
 
+  # events#indexで利用
+  scope :find_old_events, -> (p) { page(p).per(3).order(:date) }
+
   before_save do
     self.image = new_image if new_image
   end

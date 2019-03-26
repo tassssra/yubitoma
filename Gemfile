@@ -54,6 +54,7 @@ gem 'devise-i18n-views'
 
 # for pagenation
 gem 'kaminari'
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
