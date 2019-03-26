@@ -6,7 +6,7 @@ class JoinsController < ApplicationController
   end
 
   def destroy
-    @join = Join.find_by(event_id: params[:event_id], user_id: current_user.id)
+    @join = Join.find_by(event_id: current_user.event.id, user_id: current_user.id)
     @join.destroy
       redirect_back(fallback_location: events_path)
       flash[:notice] = "イベント参加をキャンセルしました。"
