@@ -16,12 +16,13 @@
   <%= simple_format @event.description %>
   <%= link_to t(".edit"), edit_event_path(@event), class: "btn btn-primary" %>
   <%= button_tag t(".delete"), class: "btn btn-danger", data: { toggle: "modal", target: "#delete-event" } %>
-  <% if user_signed_in? && current_user.already_joined?(@event) %>
+  <% if user_signed_in? %>
     <%= button_to t(".join_delete"), event_join_path(@event), method: :delete, data: { confirm: "イベント参加をキャンセルしますか？" },class: "btn btn-warning" %>
+    <% if current_user.already_joined?(@event) %>
   <% elsif user_signed_in? %>
     <%= button_to t(".join_new"), event_joins_path(@event), class: "btn btn-info" %>
   <% end %>
-  <%= link_to "MYイベント", user_path(current_user), class: "btn btn-success" %>
+  <%= link_to "MYイベント", user_path, class: "btn btn-success" %>
   <%= link_to t(".return"), events_path, class: "btn btn-secondary" %>
 </div>
 

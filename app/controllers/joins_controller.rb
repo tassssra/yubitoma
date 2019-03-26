@@ -1,14 +1,24 @@
 class JoinsController < ApplicationController
+  before_action :set_event
+
   def create
-    @join = current_user.joins.create(event_id: params[:event_id])
-      redirect_back(fallback_location: events_path)
-      flash[:notice] = "イベントに参加しました。"
+    @join = Join.create(user_id: current_user.id, event_id: params[:event_id])
+    @joins = Join.where(event_id: params[:event_id])
+    @event.reload
+    flash[:notice] = "イベントに参加しました。"
   end
 
   def destroy
-    @join = Join.find_by(event_id: current_user.event.id, user_id: current_user.id)
-    @join.destroy
-      redirect_back(fallback_location: events_path)
-      flash[:notice] = "イベント参加をキャンセルしました。"
+    join = Join.find_by(user_id: current_user.id, event_id: params[:event_id])
+    join.destroy
+    @joins = Join.where(event_id: params[:event_id])
+    @event.reload
+    flash[:notice] = "イベント参加をキャンセルしました。"
+  end
+
+  private
+
+  def set_event
+    @event = Event.find(params[:event_id])
   end
 end

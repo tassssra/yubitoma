@@ -4,9 +4,13 @@ class Event < ApplicationRecord
   attribute :new_image
 
   belongs_to :user
-  has_many :joins, dependent: :nullify
-  has_many :joined_users, through: :joins, source: :user
+  has_many :joins, dependent: :destroy
+  # has_many :joined_users, through: :joins, source: :user
   accepts_nested_attributes_for :joins
+
+  def join_user(user_id)
+    joins.find_by(user_id: user_id)
+  end
 
   validates :title, presence: true, length: 1..50
   validates :date, presence: true

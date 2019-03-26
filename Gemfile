@@ -56,12 +56,24 @@ gem 'devise-i18n-views'
 gem 'kaminari'
 gem 'ransack'
 
+# add active_link
+gem 'active_link_to'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
+  gem 'view_source_map'
+  gem 'tapp'
+  gem 'rack-mini-profiler'
+  gem 'pry-stack_explorer'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'hirb'
+  gem 'binding_of_caller'
   # Analize code
   gem 'rubocop', require: false
   # check gem security
