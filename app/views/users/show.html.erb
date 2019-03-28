@@ -4,14 +4,14 @@
       <h3>MYイベント</h3>
     </div>
     <div class="col-md-8">
-<!--      <h3><%#= @current_user.name %></h3>-->
+<!--      <h3><%#= current_user.name -%>さんのイベント</h3>-->
       <h4>参加しているイベント</h4>
-      <% @current_user.joined_events.each do |event| %>
-        <%= link_to event.title, event_path %>
+      <% @events.each do |event| %>
+        <%= link_to event.title, event_path(event.id) %>
         <hr>
       <% end %>
       <h4>作成したイベント</h4>
-      <% @current_user.events.each do |event| %>
+      <% current_user.events.each do |event| %>
         <%= link_to event.title, event_path %>
         <hr>
       <% end %>

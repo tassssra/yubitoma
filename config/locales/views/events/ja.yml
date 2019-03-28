@@ -11,7 +11,7 @@
       show:
         date: 日時
         address: 会場
-        description: イベントの説明
+        description: イベント概要
         edit: 編集
         return: イベント一覧へ戻る
         delete: 削除

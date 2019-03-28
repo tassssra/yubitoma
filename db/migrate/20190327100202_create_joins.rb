@@ -4,7 +4,8 @@ class CreateJoins < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.references :event, foreign_key: true
 
-      t.timestamps null: false
+      t.timestamps
     end
+    add_index :joins, [:user_id, :event_id], unique: true
   end
 end

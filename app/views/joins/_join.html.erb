@@ -1,41 +1,9 @@
 <% if user_signed_in? %>
-
-  <% unless event.join_user(current_user.id).blank? %>
-    <%= link_to event_join_path(event_id: event.id ,id: event.joins[0].id), method: :delete, remote: true do %>
-      <div class="vertical_join">
-        <i class="material-icons red-text">favorite</i>
-        <span class="red-text">
-          <%= event.joins_count %>
-        </span>
-      </div>
-    <% end %>
+  <% if event.joined_by?(current_user) %>
+    <%= link_to "キャンセル", event_joins_path(event.id), method: :delete, remote: true, class: "btn btn-warning" %>
   <% else %>
-    <%= link_to event_joins_path(event.id), method: :event, remote: true do %>
-      <div class="vertical_join">
-        <i class="material-icons grey-text text-darken-2">favorite_border</i>
-        <span class="grey-text text-darken-2">
-          <%= event.joins_count %>
-        </span>
-      </div>
-    <% end %>
+    <%= link_to "参加", event_joins_path(event.id), method: :post, remote: true, class: "btn btn-success" %>
   <% end %>
-
 <% else %>
-
-  <% if event.joins_count > 0 %>
-    <div class="vertical_join">
-      <i class="material-icons red-text">favorite</i>
-      <span class="red-text">
-        <%= event.joins_count %>
-      </span>
-    </div>
-  <% else %>
-    <div class="vertical_join">
-      <i class="material-icons grey-text text-darken-2">favorite_border</i>
-      <span class="grey-text text-darken-2">
-        <%= event.joins_count %>
-      </span>
-    </div>
-  <% end %>
-
+  <p><span>参加人数: </span><%= event.joins.count %></p>
 <% end %>

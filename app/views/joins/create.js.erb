@@ -1,1 +1,1 @@
-$('#joins_buttons_<%= @event.id %>').html("<%= j(render partial: 'joins/join', locals: {event: @event}) %>");
+$('#joins_buttons_<%= event.id %>').html("<%= j(render partial: 'joins/join', locals: { event: event }) %>");

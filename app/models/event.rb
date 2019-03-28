@@ -5,12 +5,8 @@ class Event < ApplicationRecord
 
   belongs_to :user
   has_many :joins, dependent: :destroy
-  # has_many :joined_users, through: :joins, source: :user
-  accepts_nested_attributes_for :joins
-
-  def join_user(user_id)
-    joins.find_by(user_id: user_id)
-  end
+  has_many :join_users, through: :joins, source: :user
+  # accepts_nested_attributes_for :joins
 
   validates :title, presence: true, length: 1..50
   validates :date, presence: true
@@ -22,5 +18,9 @@ class Event < ApplicationRecord
 
   before_save do
     self.image = new_image if new_image
+  end
+
+  def joined_by?(user)
+    joins.where(user_id: user.id).exists?
   end
 end

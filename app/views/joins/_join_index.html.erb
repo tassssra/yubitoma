@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+  <% unless event.join_user(current_user.id).blank? %>
+    <%= link_to event_join_path(event_id: event.id, id: event.joins[0].id), method: :delete, remote: true do %>
+      <div class="vertical_join">
+        <span class="fa fa-heart join-btn-index"></span>
+      </div>
+      <span class="red-text-index">
+        <%= event.joins_count %>
+      </span>
+    <% end %>
+  <% else %>
+    <%= link_to event_joins_path(event.id), method: :event, remote: true do %>
+      <div class="vertical_join">
+        <i class="fa fa-heart join-btn-unjoin-index fa-1x"></i>
+        <span class="red-text-index text-darken-2">
+          <%= event.joins_count %>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+  <div class="vertical_join">
+    <i class="fas fa-heart join-btn-index fa-1x"></i>
+    <span class="red-text-index" >
+      <%= event.joins_count %>
+    </span>
+  </div>
+<% end %>

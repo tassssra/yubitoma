@@ -1,0 +1,23 @@
+<div class="index-content">
+  <div class="container">
+    <div class="row">
+      <%  event.each do |event| %>
+        <div class="col-lg-6">
+          <div class="mb-5">
+            <%= link_to event_path(event)do %>
+              <div class="card">
+                <%= show_event_image event %>
+                <h4 class ="title"><%= event.title %></h4>
+                <h4><%= link_to t(".Read More"), event_path(event), class: "blue-button" %></h4>
+                <span class = "date_time"><%= event.created_at.strftime("%Y/%m/%d") %></span>
+                <div id="joins_buttons_show<%= event.id %>">
+                  <%= render partial: 'joins/join_index', locals: { event: event} %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

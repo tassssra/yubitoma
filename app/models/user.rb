@@ -5,13 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :timeoutable
 
-  has_many :events
-  has_many :joins
-  has_many :joined_events, through: :joins, source: :event
+  has_many :events, dependent: :destroy
+  has_many :joins, dependent: :destroy
+  has_many :join_events, through: :joins, source: :event
+  # has_many :joined_events, through: :joins, source: :event
 
-  def already_joined?(event)
-    self.joins.exists?(event_id: event.id)
-  end
+  # def already_joined?(event)
+  #   self.joins.exists?(event_id: event.id)
+  # end
 
   has_one_attached :avatar
 end
