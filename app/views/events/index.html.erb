@@ -1,22 +1,29 @@
 <!-- app/views/events/index.html.erb -->
-<div class="main_contents">
-  <% @events.each do |event| %>
-<!--    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">-->
-    <div>
-      <%= show_event_image event %>
-      <h5 class="mt-2"><%= link_to event.title, event_path(event.id) %></h5>
-      <div><%= event.date %></div>
-      <p><%= truncate(event.description, length: 20) %></p>
+<% if user_signed_in? %>
+  <div class="main_contents">
+    <% @events.each do |event| %>
+  <!--    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">-->
+      <div>
+        <%= show_event_image event %>
+        <h5 class="mt-2"><%= link_to event.title, event_path(event.id) %></h5>
+        <div><%= event.date %></div>
+        <p><%= truncate(event.description, length: 20) %></p>
 
-      <!-- ↓追加(部分的に更新したい場所)↓ -->
-      <div id="joins_buttons_<%= event.id %>">
-        <%= render partial: 'joins/join', locals: { event: event } %>
+        <!-- ↓追加(部分的に更新したい場所)↓ -->
+        <div id="joins_buttons_<%= event.id %>">
+          <%= render partial: 'joins/join', locals: { event: event } %>
+        </div>
+        <!-- ↑ここまで↑ -->
       </div>
-      <!-- ↑ここまで↑ -->
-    </div>
-  <% end %>
-</div>
+      <hr>
+    <% end %>
+  </div>
 
-<div class="col-12">
-  <%= paginate @events %>
-</div>
+  <div class="col-12">
+    <%= paginate @events %>
+  </div>
+
+<% else %>
+  <img src="/app/assets/images/for_top_page2.jpg" class="top_image" alt="">
+<% end %>
+

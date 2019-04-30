@@ -26,6 +26,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.with_attached_image.includes(joins: :user).find(params[:id])
   end
 
   def update
@@ -37,6 +38,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path, notice: "イベントを削除しました。"
   end

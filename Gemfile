@@ -67,7 +67,7 @@ end
 group :development do
   gem 'view_source_map'
   gem 'tapp'
-  gem 'rack-mini-profiler'
+  # gem 'rack-mini-profiler'
   gem 'pry-stack_explorer'
   gem 'pry-rails'
   gem 'pry-doc'

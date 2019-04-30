@@ -1,24 +1,32 @@
-# README
+# yubitoma
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### リンク
+[yubitoma] (https://yubitoma.herokuapp.com/)
 
-Things you may want to cover:
+## コンセプト
+イベント一覧画面からワンクリックで簡単に参加できるIT勉強会サイトです。
 
-* Ruby version
+## 使用した技術
 
-* System dependencies
+- **言語、フレームワーク**
 
-* Configuration
+  - Ruby, Ruby on Rails
 
-* Database creation
+- **DB**
 
-* Database initialization
+  - PostgreSQL
 
-* How to run the test suite
+- **デプロイ**
 
-* Services (job queues, cache servers, search engines, etc.)
+  - Heroku
 
-* Deployment instructions
+- **検索**
 
-* ...
+  - ransack
+
+- **ユーザー認証**
+
+  - devise
+  
+- **ページネーション**
+  - kaminari

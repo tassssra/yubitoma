@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: current_user.id)
     @events = @user.events
     @join_events = @user.join_events
   end
