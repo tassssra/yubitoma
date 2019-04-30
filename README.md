@@ -1,7 +1,7 @@
 # yubitoma
 
 #### リンク
-[yubitoma] (https://yubitoma.herokuapp.com/)
+[yubitoma](https://yubitoma.herokuapp.com/)
 
 ## コンセプト
 イベント一覧画面からワンクリックで簡単に参加できるIT勉強会サイトです。
