@@ -9,24 +9,24 @@
 
 - **言語、フレームワーク**
 
-  - Ruby, Ruby on Rails
+  - `Ruby`, `Ruby on Rails`
 
 - **DB**
 
-  - PostgreSQL
+  - `PostgreSQL`
 
 - **デプロイ**
 
-  - Heroku
+  - `Heroku`
 
 - **検索**
 
-  - ransack
+  - `ransack`
 
 - **ユーザー認証**
 
-  - devise
+  - `devise`
   
 - **ページネーション**
 
-  - kaminari
+  - `kaminari`
